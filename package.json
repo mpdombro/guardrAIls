@@ -1,0 +1,30 @@
+{
+  "name": "guardrails",
+  "version": "1.0.0",
+  "description": "Auth0 AI/MCP Security Demo Application - Treasury Management AI Assistant",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "mcp-server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:mcp\"",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:mcp": "npm run dev --workspace=mcp-server",
+    "build": "npm run build --workspaces",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "clean": "rm -rf node_modules frontend/node_modules backend/node_modules mcp-server/node_modules",
+    "setup": "./setup.sh"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  }
+}
